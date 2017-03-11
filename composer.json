@@ -1,0 +1,17 @@
+{
+    "name": "modulismo/ranger",
+    "type": "magento-module",
+    "description": "Modulismo Product Finder",
+    "require": {
+        "magento-hackathon/magento-composer-installer" : "*"
+    },
+    "authors": [
+        {
+            "name": "Alex Hall",
+            "email": "memorious@modulismo.com"
+        }
+    ],
+    "extra" : {
+        "magento-deploystrategy" : "copy"
+    }
+}

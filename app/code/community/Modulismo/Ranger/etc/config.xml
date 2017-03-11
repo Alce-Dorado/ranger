@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Modulismo_Ranger extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Modulismo
+ * @package        Modulismo_Ranger
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Modulismo_Ranger>
+            <version>1.0.0</version>
+        </Modulismo_Ranger>
+    </modules>
+    <frontend>
+        <routers>
+            <modulismo_ranger>
+                <use>standard</use>
+                <args>
+                    <module>Modulismo_Ranger</module>
+                    <frontName>ranger</frontName>
+                </args>
+            </modulismo_ranger>
+        </routers>
+        <layout>
+            <updates>
+                <modulismo_ranger>
+                    <file>modulismo/ranger.xml</file>
+                </modulismo_ranger>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <helpers>
+            <modulismo_ranger>
+                <class>Modulismo_Ranger_Helper</class>
+            </modulismo_ranger>
+        </helpers>
+        <blocks>
+            <modulismo_ranger>
+                <class>Modulismo_Ranger_Block</class>
+            </modulismo_ranger>
+        </blocks>
+    </global>
+</config>

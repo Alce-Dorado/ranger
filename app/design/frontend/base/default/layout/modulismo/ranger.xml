@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Modulismo_Ranger extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Modulismo
+ * @package        Modulismo_Ranger
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout version="1.0.0">
+    <modulismo_ranger_index_index>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="modulismo_ranger/index" name="modulismo.ranger.index" template="modulismo/ranger/index.phtml">
+                <block type="modulismo_ranger/index" name="modulismo_ranger.products" template="catalog/product/list.phtml">
+                    <block type="modulismo_ranger/toolbar" name="product_list_toolbar" template="modulismo/ranger/toolbar.phtml"/>
+                    <action method="setData"><key>_current_grid_mode</key><value>list</value></action>
+                    <action method="setColumnCount">
+                        <column_count>2</column_count>
+                    </action>
+                    <action method="setToolbarBlockName">
+                        <name>product_list_toolbar</name>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>empty</layout>
+                        <count>2</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>one_column</layout>
+                        <count>2</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>two_columns_left</layout>
+                        <count>2</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>two_columns_right</layout>
+                        <count>2</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>three_columns</layout>
+                        <count>2</count>
+                    </action>
+                    <action method="setToolbarBlockName">
+                        <name>product_list_toolbar</name>
+                    </action>        
+                </block>
+            </block> 
+        </reference>
+    </modulismo_ranger_index_index>
+    
+    <modulismo_ranger_index_getproducts>
+        <block type="modulismo_ranger/index" name="modulismo_ranger.products" template="catalog/product/list.phtml">
+            <block type="modulismo_ranger/toolbar" name="product_list_toolbar" template="modulismo/ranger/toolbar.phtml">
+            <action method="setData"><key>_current_grid_mode</key><value>list</value></action>
+            </block>
+            <action method="setColumnCount">
+                <column_count>4</column_count>
+            </action>
+            <action method="setToolbarBlockName">
+                <name>product_list_toolbar</name>
+            </action>
+            <action method="addColumnCountLayoutDepend">
+                <layout>empty</layout>
+                <count>2</count>
+            </action>
+            <action method="addColumnCountLayoutDepend">
+                <layout>one_column</layout>
+                <count>2</count>
+            </action>
+            <action method="addColumnCountLayoutDepend">
+                <layout>two_columns_left</layout>
+                <count>4</count>
+            </action>
+            <action method="addColumnCountLayoutDepend">
+                <layout>two_columns_right</layout>
+                <count>2</count>
+            </action>
+            <action method="addColumnCountLayoutDepend">
+                <layout>three_columns</layout>
+                <count>2</count>
+            </action>
+            <action method="setToolbarBlockName">
+                <name>product_list_toolbar</name>
+            </action>        
+        </block>
+    </modulismo_ranger_index_getproducts>
+  
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="modulismo_ranger">
+                <name>modulismo_ranger_customer_page</name>
+                <path>modulismo_ranger/</path>
+                <label>Product Finder</label>
+            </action>
+        </reference>
+
+    </customer_account>
+    
+</layout>

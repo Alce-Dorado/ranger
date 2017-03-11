@@ -1,0 +1,4 @@
+app/code/community/Modulismo/Ranger/  app/code/community/Modulismo/Ranger/
+app/design/frontend/base/default/layout/modulismo/ranger.xml  app/design/frontend/base/default/layout/modulismo/ranger.xml
+app/design/frontend/base/default/template/modulismo/ranger/ app/design/frontend/base/default/template/modulismo/ranger/
+app/etc/modules/Modulismo_ranger.xml  app/etc/modules/Modulismo_ranger.xml

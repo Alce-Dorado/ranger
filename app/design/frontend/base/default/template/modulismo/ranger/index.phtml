@@ -1,0 +1,99 @@
+<div class="page-title">
+    <h1><?php echo $this->__('Product Finder') ?></h1>
+</div>
+
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<form method="post" id="form-validate" autocomplete="off">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Ranges') ?></h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="low" class="required"><em>*</em><?php echo $this->__('From') ?></label>
+                    <div class="input-box">
+                        <input type="text" 
+                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('From')) ?>" 
+                               class="input-text required-entry validate-number" 
+                               name="low" 
+                               id="low" 
+                               <?php if ($this->getRequest()->getParam('low')): ?>
+                                   value ="<?php echo $this->getRequest()->getParam('low'); ?>"
+                               <?php endif; ?>
+                               />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="high" class="required"><em>*</em><?php echo $this->__('To') ?></label>
+                    <div class="input-box">
+                        <input type="text" 
+                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('To')) ?>" 
+                               class="input-text required-entry validate-number" 
+                               name="high" 
+                               id="high"
+                               <?php if ($this->getRequest()->getParam('high')): ?>
+                                   value ="<?php echo $this->getRequest()->getParam('high'); ?>"
+                               <?php endif; ?>
+                               />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</form>
+<div class="buttons-set">
+    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+    <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+    <button id="product-fetcher" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Get Products')) ?>" class="button"><span><span><?php echo $this->__('Get Products') ?></span></span></button>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    Event.observe('product-fetcher', 'click', getProducts);
+    function getProducts() {
+        Validation.validate($('low'));
+        Validation.validate($('high'));
+        var low = parseInt(document.getElementById("low").value);
+        var high = parseInt(document.getElementById("high").value);
+        if (validateFields(low, high)) {
+            new Ajax.Updater('ranged-products', '/ranger/index/getproducts', {parameters: 'low=' + low + '&high=' + high});
+        }
+    }
+
+    function validateFields(low, high) {
+        if ((low === '') || (isNaN(low))) {
+            return false;
+        }
+
+        if ((high === '') || (isNaN(high))) {
+            return false;
+        }
+
+        if (low < 0) {
+            alert('please enter a positive low value');
+            return false;
+        }
+
+        if (high < low) {
+            alert('please enter a high value bigger than your low value');
+            return false;
+        }
+
+        if (high > (low * 5)) {
+            alert('please enter a high value not bigger than 5 times your low value');
+            return false;
+        }
+
+        return true;
+    }
+
+//]]>
+</script>
+
+<div class="fieldset">
+    <h2 class="legend"><?php echo $this->__('Products Found') ?></h2>
+    <div id="ranged-products">
+        <?php if ($this->getRequest()->getParam('low') && $this->getRequest()->getParam('high')): ?>
+            <?php echo $this->getChild('modulismo_ranger.products')->setData('range', array('from' => $this->getRequest()->getParam('low'), 'to' => $this->getRequest()->getParam('high')))->toHtml(); ?>
+        <?php endif; ?>
+    </div>
+</div>

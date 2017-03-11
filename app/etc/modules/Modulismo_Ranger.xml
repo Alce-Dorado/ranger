@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Modulismo_Ranger extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Modulismo
+ * @package        Modulismo_Ranger
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Modulismo_Ranger>
+            <active>true</active>
+            <codePool>community</codePool>
+            <version>1.0.0</version>
+        </Modulismo_Ranger>
+    </modules>
+</config>
