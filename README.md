@@ -21,4 +21,4 @@ To `compose` into your project simply:
 
 - Finally you'll have:
 
-![Ranger](https://lh6.googleusercontent.com/xNC7Lm7_G6a0GallBZKCGwzfNIlpSSd3iqfk8V1H_b81rN6JYys6tvCEcVaDS1zY_608mWHVdkO6YAU=w3360-h1746-rw)
+![Ranger](/Ranger.png?raw=true "Ranger")
